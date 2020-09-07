@@ -10,7 +10,7 @@ var margin = {
 };
 
 var width = svgWidth - margin.left - margin.right;
-var height = svgHeight - marging.top - margin.bottom;
+var height = svgHeight - margin.top - margin.bottom;
 
 // Create SVG warpper; append SVG group
 var svg = d3
@@ -22,3 +22,12 @@ var svg = d3
 var chartGroup = svg
   .append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+// Read Data
+d3.csv("../assets/data/data.csv")
+  .then(function (data) {
+    console.log(data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });

@@ -80,17 +80,18 @@ d3.csv("../assets/data/data.csv")
       .classed("stateCircle", true)
       .attr("cx", (d) => xLinearScale(d.poverty))
       .attr("cy", (d) => yLinearScale(d.healthcare))
-      .attr("r", "20")
+      .attr("r", "15")
       .attr("opacity", ".5");
 
-    svg
+    var textLabels = chartGroup
+      .append("g")
       .selectAll("text")
       .data(stateData)
       .enter()
       .append("text")
       .classed("stateText", true)
-      .attr("x", (d) => xLinearScale(d.poverty) + 100)
-      .attr("y", (d) => yLinearScale(d.healthcare) + 20)
+      .attr("x", (d) => xLinearScale(d.poverty))
+      .attr("y", (d) => yLinearScale(d.healthcare) + 5)
       .text((d) => d.abbr);
   })
   .catch(function (error) {

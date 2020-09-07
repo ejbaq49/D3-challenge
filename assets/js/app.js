@@ -77,11 +77,21 @@ d3.csv("../assets/data/data.csv")
       .data(stateData)
       .enter()
       .append("circle")
+      .classed("stateCircle", true)
       .attr("cx", (d) => xLinearScale(d.poverty))
       .attr("cy", (d) => yLinearScale(d.healthcare))
-      .attr("r", "15")
-      .attr("fill", "skyblue")
+      .attr("r", "20")
       .attr("opacity", ".5");
+
+    svg
+      .selectAll("text")
+      .data(stateData)
+      .enter()
+      .append("text")
+      .classed("stateText", true)
+      .attr("x", (d) => xLinearScale(d.poverty) + 100)
+      .attr("y", (d) => yLinearScale(d.healthcare) + 20)
+      .text((d) => d.abbr);
   })
   .catch(function (error) {
     console.log(error);

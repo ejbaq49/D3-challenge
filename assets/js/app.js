@@ -56,7 +56,7 @@ d3.csv("../assets/data/data.csv")
 
     var yLinearScale = d3
       .scaleLinear()
-      .domain([2, d3.max(stateData, (d) => d.healthcare)])
+      .domain([4, d3.max(stateData, (d) => d.healthcareHigh)])
       .range([height, 0]);
 
     // axis functions
@@ -80,7 +80,7 @@ d3.csv("../assets/data/data.csv")
       .attr("cx", (d) => xLinearScale(d.poverty))
       .attr("cy", (d) => yLinearScale(d.healthcare))
       .attr("r", "15")
-      .attr("fill", "pink")
+      .attr("fill", "skyblue")
       .attr("opacity", ".5");
   })
   .catch(function (error) {

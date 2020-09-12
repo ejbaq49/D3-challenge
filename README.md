@@ -3,4 +3,3 @@
 ## ToDo
 
 [ ] add makeDynamic() function
-[ ] add axis labels

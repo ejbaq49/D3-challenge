@@ -83,6 +83,7 @@ d3.csv("../assets/data/data.csv")
       .attr("r", "15")
       .attr("opacity", ".5");
 
+    // Add State abbreviation to circles
     var textLabels = chartGroup
       .append("g")
       .selectAll("text")
@@ -93,6 +94,22 @@ d3.csv("../assets/data/data.csv")
       .attr("x", (d) => xLinearScale(d.poverty))
       .attr("y", (d) => yLinearScale(d.healthcare) + 5)
       .text((d) => d.abbr);
+
+    // Create axis labels
+    chartGroup
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left + 40)
+      .attr("x", 0 - height / 2)
+      .attr("dy", "1em")
+      .attr("class", "axisText")
+      .text("In Poverty (%)");
+
+    chartGroup
+      .append("text")
+      .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
+      .attr("class", "axisText")
+      .text("Lacks Healthcare (%)");
   })
   .catch(function (error) {
     console.log(error);

@@ -1,5 +1,1 @@
-# D3-challenge
-
-## ToDo
-
-[ ] add makeDynamic() function
+# D3 challenge
